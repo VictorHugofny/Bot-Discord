@@ -9,17 +9,22 @@ bot.on('ready',() =>{
     bot.user.setActivity('!comandos bot 0.1');
     console.log('estou pronto para ser usado');
 });
-bot.on('message',message =>{ 
+
+bot.on('message',message =>{
+prefixo = "!"
+
 let responseObject = {
-    "!Foto": "https://i.ibb.co/pJ2CYZw/hugo-nova.png", 
+    "bom dia" :"Boomm diaa",
+    "oi" :"tudo bem?",
+    "tudo": "nicee!",
+    "tudo bom" : "fodaa",
+    "hugo" : "sou eu mesmo",
+    "opa" : "opaaaa!!",
     "!foto" : "https://i.ibb.co/pJ2CYZw/hugo-nova.png",
-    "!Random" : "https://giphy.com/explore/random",
     "!random" : "https://giphy.com/explore/random",
-    "!Oi" : "Bem vindo",
     "!oi" : "Bem vindo",
-    "!Sobre" : "Sou um Bot criado para estudos por Victorhugofny",
     "!sobre" : "Sou um Bot criado para estudos por Victorhugofny",
-    "!Comandos" : {
+    "!comandos" : {
         "embed": {
             "title": "COMANDOS DO BOT (ABAIXO)",
             "description": "Bem vindo, meu [Github](https://github.com/VictorHugofny) meu canal no [Youtube](https://www.youtube.com/channel/UC0LxIVk-V0k6LsX_Z251iMw)",
@@ -42,19 +47,19 @@ let responseObject = {
             },
             "fields": [
               {
-                "name": "!Oi",
+                "name": "!oi",
                 "value": "e receba uma mensagem de boas vindas"
               },
               {
-                "name": "!Sobre",
+                "name": "!sobre",
                 "value": "Informações sobre o bot"
               },
               {
-                "name": "!Comandos",
+                "name": "!comandos",
                 "value": "Para ver os comandos"
               },
               {
-                "name": "Instagram",
+                "name": "instagram",
                 "value":"@victorhugofny",
                 "inline": true
                 
@@ -67,7 +72,22 @@ let responseObject = {
           ]
         }
       }}
-if (responseObject[message.content]){
-    message.channel.send(responseObject[message.content]);
+if (responseObject[message.content.toLowerCase()]){
+    try{
+        message.channel.send(responseObject[message.content.toLowerCase()]);
+    }
+    catch(error){
+        message.channel.send("ERROR!!!"+error)
+    }
+}
+if (message.content.startsWith("!roleta")){
+    message.reply("Roleta Russa, 6 a 1, se você pegar o 1 morre")
+    randomNumber = Math.floor(Math.random()* (6 - 1) + 1);
+    if (randomNumber== 1){
+        message.reply("Morreu, você tirou 1");
+    }
+    else{
+        message.reply("Sobriviveu");
+    }
 }
 });
