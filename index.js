@@ -9,12 +9,17 @@ bot.on('ready',() =>{
     bot.user.setActivity('!comandos bot 0.1');
     console.log('estou pronto para ser usado');
 });
-
 bot.on('message',message =>{ 
 let responseObject = {
+    "!Foto": "https://i.ibb.co/pJ2CYZw/hugo-nova.png", 
+    "!foto" : "https://i.ibb.co/pJ2CYZw/hugo-nova.png",
+    "!Random" : "https://giphy.com/explore/random",
+    "!random" : "https://giphy.com/explore/random",
+    "!Oi" : "Bem vindo",
     "!oi" : "Bem vindo",
+    "!Sobre" : "Sou um Bot criado para estudos por Victorhugofny",
     "!sobre" : "Sou um Bot criado para estudos por Victorhugofny",
-    "!comandos" : {
+    "!Comandos" : {
         "embed": {
             "title": "COMANDOS DO BOT (ABAIXO)",
             "description": "Bem vindo, meu [Github](https://github.com/VictorHugofny) meu canal no [Youtube](https://www.youtube.com/channel/UC0LxIVk-V0k6LsX_Z251iMw)",
